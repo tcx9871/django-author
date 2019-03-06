@@ -37,7 +37,8 @@ def pre_save_callback(sender, instance, **kwargs):
 
     if (
         hasattr(instance, 'app_label')
-        and "%s.%s" % (instance.app_label, instance.model) in settings.AUTHOR_IGNORE_MODELS
+        and "%s.%s" % (instance.app_label, instance.model)
+            in settings.AUTHOR_IGNORE_MODELS
     ):
         return
     if not hasattr(instance, settings.AUTHOR_CREATED_BY_FIELD_NAME):
